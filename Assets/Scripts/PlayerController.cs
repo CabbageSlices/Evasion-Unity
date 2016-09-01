@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour {
         //set a random color
         Vector4 color = GroupColor.GetClampedRandomColor(0.4f);
         GetComponent<SpriteRenderer>().color = color;
+
+        gameObject.tag = "Player";
 	}
 	
 	void Update () {
@@ -30,7 +32,11 @@ public class PlayerController : MonoBehaviour {
         //if player is falling or jumping then don't let him jump
         if (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.y) > 0.1)
             isGrounded = false;
-	}
+
+        if (GetComponent<Rigidbody2D>().velocity.y > jumpImpulse)
+            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpImpulse);
+
+    }
 
     void OnCollisionEnter2D(Collision2D collision) {
 
@@ -45,6 +51,10 @@ public class PlayerController : MonoBehaviour {
 
             isGrounded = true;
         }
+    }
 
+    void OnCollisionStay2D(Collision2D collision) {
+
+        OnCollisionEnter2D(collision);
     }
 }

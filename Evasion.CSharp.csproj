@@ -63,10 +63,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BlockSpawner.cs" />
+    <Compile Include="Assets\Scripts\CameraTracker.cs" />
+    <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\GroupColor.cs" />
+    <Compile Include="Assets\Scripts\GroupHelper.cs" />
     <Compile Include="Assets\Scripts\GroupMovement.cs" />
     <Compile Include="Assets\Scripts\GroupOrientation.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\fpsDisplay.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
